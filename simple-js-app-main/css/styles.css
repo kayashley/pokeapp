@@ -1,0 +1,111 @@
+:root {
+    --primary-color: #white;
+    --button-color: rgb(161, 161, 75);
+    --body-text-color: white;
+}
+
+body {
+    /* font-family: 'Courier New', Courier, monospace; */
+    font-size: 30px;
+    background-color: var(--primary-color);
+}
+
+h1 {
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.pokemon-list {
+    list-style-type: none;
+}
+
+.btn-primary {
+    font-size: 18px; 
+    /* border-radius: 8px;  */
+    border: none;
+    /* justify-content: center;  */
+}
+.pokemon-button {
+    text-transform: capitalize;
+    background-color: var(--button-color);
+    border: none;
+    color: var(--body-text-color);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 10px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border-radius: 12px;
+
+    width: 400px;
+}
+
+.list-group-item {
+    border: none;
+}
+
+@media all and (max-width: 420px) {
+    h1 {
+        font-size: 27px;
+    }
+}
+
+@media all and (max-width: 260px) {
+    .btn-primary {
+        justify-content: center;
+        font-size: 1.5vh;
+        height: 7vh;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+}
+
+/* Modal CSS */
+#modal-container {
+    display: none;
+}
+
+#modal-container.is-visible {
+    position: fixed;
+    padding: 20px;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+
+
+    /* To show above other content */
+    z-index: 999;
+
+    /* To allow scrolling if the screen is not high enough */
+    overflow: auto;
+
+    /* To center the modal */
+    display: grid;
+    text-align: center;
+    
+}
+
+.modal-close {
+    float: right;
+    -webkit-appearance: none;
+    border: 0;
+    background: none;
+    color: gray;
+    text-decoration: underline;
+}
+
+/* #modal-container.is-visible {
+    display: block;
+} */
