@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #white;
+    --primary-color: white;
     --button-color: rgb(161, 161, 75);
     --body-text-color: white;
 }
@@ -19,6 +19,21 @@ h1 {
     list-style-type: none;
 }
 
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
 .btn-primary {
     font-size: 18px; 
     /* border-radius: 8px;  */
@@ -30,7 +45,7 @@ h1 {
     background-color: var(--button-color);
     border: none;
     color: var(--body-text-color);
-    padding: 15px 32px;
+    padding: 15px 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -39,12 +54,13 @@ h1 {
     cursor: pointer;
     transition-duration: 0.4s;
     border-radius: 12px;
-
-    width: 400px;
 }
 
 .list-group-item {
     border: none;
+    /* margin: auto; */
+    /* margin-left: 20px;
+    margin-right: 20px; */
 }
 
 @media all and (max-width: 420px) {
