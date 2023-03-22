@@ -1,12 +1,12 @@
 let pokemonRepository = (function () {
 let pokemonList = [];
-let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
     function add(pokemon) {
-        if (typeof pokemon === 'object' && 'name' in pokemon) {
+        if (typeof pokemon === "object" && "name" in pokemon) {
             pokemonList.push(pokemon);
         } else {
-            console.log('Not a pokemon.')
+            console.log("Not a pokemon.")
         }
     }
   
@@ -15,24 +15,24 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
     }
 
     function addListItem(pokemon) {
-        let pokemonList = document.querySelector('.pokemon-list');
-        let listItem = document.createElement('li');
-        listItem.classList.add('list-group-item');
-        let pokeButton = document.createElement('button');
+        let pokemonList = document.querySelector(".pokemon-list");
+        let listItem = document.createElement("li");
+        listItem.classList.add("list-group-item");
+        let pokeButton = document.createElement("button");
         pokeButton.innerText = pokemon.name;
-        pokeButton.classList.add('btn-block');
-        pokeButton.classList.add('btn-primary');
-        pokeButton.classList.add('pokemon-button');
-        pokeButton.setAttribute('data-toggle', 'modal');
-        pokeButton.setAttribute('data-target', '#exampleModal');
-        listItem.classList.add('col-xl-3');
-        listItem.classList.add('col-lg-4');
-        listItem.classList.add('col-md-6');
+        pokeButton.classList.add("btn-block");
+        pokeButton.classList.add("btn-primary");
+        pokeButton.classList.add("pokemon-button");
+        pokeButton.setAttribute("data-toggle", "modal");
+        pokeButton.setAttribute("data-target", "#exampleModal");
+        listItem.classList.add("col-xl-3");
+        listItem.classList.add("col-lg-4");
+        listItem.classList.add("col-md-6");
 
         listItem.appendChild(pokeButton);
         pokemonList.appendChild(listItem);
         
-        pokeButton.addEventListener('click', function(event) {
+        pokeButton.addEventListener("click", function(event) {
             showDetails(pokemon);
         });
     }
@@ -51,7 +51,7 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
         modalTitle.empty();
         
         let pokemonName = $("<h1>" + pokemon.name + "</h1>");
-        let pokemonImage = $('img class="modal-img" style="width: 50%">');
+        let pokemonImage = $('img class="modal-img" style="width:50%">');
         pokemonImage.attr("src", pokemon.imageUrl);
         let pokemonHeight = $("<p>" + pokemon.height + "</p>");
 
@@ -66,9 +66,9 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
         modalContainer.classList.add("is-visible");
     }
         
-    window.addEventListener('keydown', (e) => {
+    window.addEventListener("keydown", (e) => {
        let modalContainer = document.querySelector("#modal-container");
-        if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+        if (e.key === "Escape" && modalContainer.classList.contains("is-visible")) {
             hideModal();
         }
     });
@@ -87,7 +87,7 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
                 add(pokemon);            
             });
         }).catch(function (e) {
-            console.log(e);
+            console.error(e);
         });
     }
 
