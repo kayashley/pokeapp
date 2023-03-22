@@ -46,20 +46,19 @@ let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
     function showModal(pokemon) {
         let modalBody = $(".modal-body");
         let modalTitle = $(".modal-title");
-
+        
         modalBody.empty();
         modalTitle.empty();
         
         let pokemonName = $("<h1>" + pokemon.name + "</h1>");
-        let pokemonImage = $('img class="modal-img" style="width:50%">');
+        let pokemonImage = $('<img class="modal-img" style="width:50%">');
         pokemonImage.attr("src", pokemon.imageUrl);
-        let pokemonHeight = $("<p>" + pokemon.height + "</p>");
-
-        modalBody.appendChild(pokemonImage);
-        modalBody.appendChild(pokemonHeight);
-        modalTitle.appendChild(pokemonName);
+        let pokemonHeight = $("<p>" + "Height: " + pokemon.height + "</p>");
         
-    }
+        modalBody.append(pokemonImage);
+        modalBody.append(pokemonHeight);
+        modalTitle.append(pokemonName);
+        }
 
     function hideModal() {
         let modalContainer = document.querySelector("#modal-conatiner");
