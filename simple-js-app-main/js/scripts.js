@@ -1,9 +1,11 @@
 let pokemonRepository = (function () {
 let pokemonList = [];
-let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
+let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=152";
 
     function add(pokemon) {
-        if (typeof pokemon === "object" && "name" in pokemon) {
+        if (typeof pokemon === "object" &&
+        "name" in pokemon &&
+        "detailsUrl" in pokemon) {
             pokemonList.push(pokemon);
         } else {
             console.log("Not a pokemon.")
@@ -122,136 +124,3 @@ pokemonRepository.loadList().then(function() {
         pokemonRepository.addListItem(pokemon);
     });
 });
-
-
-
-
-    // function showDetails(item) {
-    //     pokemonRepository.loadDetails(item).then(function () {
-    //         // Modal starts
-    //         let modalContainer = document.querySelector('#modal-container');
-
-    //         modalContainer.innerHTML = '';
-
-    //         let modal = document.createElement('div');
-    //         modal.classList.add('modal');
-
-    //         let sprite = document.createElement('img');
-    //         // sprite.createList.add('sprite');
-    //         sprite.src = item.imageUrl;
-
-    //         let closeButtonElement = document.createElement('button');
-    //         closeButtonElement.innerText = 'X';
-    //         closeButtonElement.addEventListener('click', hideModal);
-
-    //         let titleElement = document.createElement('h1');
-    //         titleElement.innerText = item.name;
-            
-    //         let contentElement = document.createElement('p');
-
-    //         let pokemonTypes = '';
-
-    //         for (let i = 0; i < item.types.length; i++) {
-    //             pokemonTypes += item.types[i].type.name;
-
-    //             if (i < item.length - 1) {
-    //                 pokemonTypes += ', ';
-    //             }
-    //         }
-
-    //         contentElement.innerText =
-    //         'Height: ' + item.height + '\n' + '\n' + 'Types: ' + pokemonTypes;
-
-    //         modal.appendChild(closeButtonElement);
-    //         modal.appendChild(titleElement);
-    //         modal.appendChild(contentElement);
-    //         modalContainer.appendChild(modal);
-    //         modal.apppendChild(sprite);
-
-    //         modalContainer.classList.add('is.visible');
-
-    //         function hideModal() {
-    //             modalContainer.classList.remove('is-visible');
-    //         }
-
-    //         // Hide modal using ESC
-
-    //         window.addEventListener('keydown', (e) => {
-    //             if (
-    //                 e.key === 'Escape' &&
-    //                 modalContainer.classList.contains('is-visible')
-    //             ) {
-    //                 hideModal();
-    //             }
-    //         });
-
-    //         // Hide modal by clicking 
-            
-    //         modalContainer.addEventListener('click', (e) => {
-    //             let target = e.target;
-    //             if (target === modalContainer) {
-    //                 hideModal();
-    //             }
-    //         });
-
-    //         document
-    //         .querySelector('button.button-class')
-    //         .addEventListener('click', () => {
-    //             showDetails('Modal Title', 'Modal Content');
-    //         });
-    //     });
-    // }
-
-
-
-
-
-// pokemonRepository.add({
-//     name: "Wartortle",
-//     type: "water",
-//     height: 1
-// });
-
-// console.log(pokemonRepository.getAll());
-
-
-// pokemonRepository.getAll().foreach(function (pokemon) {
-//     pokemonRepository.addListItem(pokemon);
-// });
-
-
-
-
-// OLD List of pokemon
-//let pokemonList = [
-//    {name: "Charmander", height: 6, type: ["fire"]},
-//    {name: "Pikachu", height: 5, type: ["electric"]},
-//    {name: "Squirtle", height: 5, type: ["water"]}
-//  ];
-
-// forEach() loop
-// pokemonList.forEach(function(pokemon) {
-//     if (pokemon.height > 5) {
-//         document.write(pokemon.name + ' is a big pokemon!');
-//     } else if (pokemon.height === 5) {
-//         document.write(pokemon.name + ' is an average pokemon!');
-//     } else {
-//         document.write(pokemon.name + 'is a small pokemon!')
-//     }
-// });
-
-//forEach() loop
-//pokemonList.forEach(function(pokemon) {
-//    console.log(pokemon.name + ' is ' + pokemon.height + ' inches tall and is a ' + pokemon.type + ' type.')
-//  });
-
-// OLD Loop of pokemon
-//  for (let i=0; i < pokemonList.length; i++) {
-//    //If the height is less than 7 and greater than 5 it is big
-//    if (pokemonList[i].height <7 && pokemonList[i].height >5) {
-//      document.write(pokemonList[i].name + " - height: " + pokemonList[i].height + " I'm a big one! ");
-//   //If the pokemon is less than 5 then it is average
-//    }else {
-//      document.write(pokemonList[i].name + " - height: " + pokemonList[i].height + " I'm average. ");
-//    }
-//  }
