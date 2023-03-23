@@ -55,12 +55,14 @@ let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=152";
         let pokemonName = $("<h1>" + pokemon.name + "</h1>");
         let pokemonImage = $('<img class="modal-img" style="width:50%">');
         pokemonImage.attr("src", pokemon.imageUrl);
-        let pokemonHeight = $("<p>" + "Height: " + pokemon.height + "</p>");
+        let pokemonHeight = $("<p>" + "<strong>" + "Height: " + pokemon.height + "</p>");
+        let pokemonTypes = $("<p>" + "<strong>" + "Type/s: " + pokemon.types + "</p>");
+
         
         modalBody.append(pokemonImage);
         modalBody.append(pokemonHeight);
         modalTitle.append(pokemonName);
-        }
+    }
 
     function hideModal() {
         let modalContainer = document.querySelector("#modal-conatiner");
