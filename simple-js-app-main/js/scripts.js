@@ -45,6 +45,7 @@ let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=152";
         });
     }
 
+    // Modal details 
     function showModal(pokemon) {
         let modalBody = $(".modal-body");
         let modalTitle = $(".modal-title");
@@ -109,6 +110,28 @@ let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=152";
         });
     }
 
+    // Pokemon search bar
+    function searchPokemon() {
+        let searchInput = document.getElementById('search-input');
+        let searchText = searchInput.value.toLowerCase();
+        let allPokemon = document.querySelectorAll('.list-group-item');
+    
+        allPokemon.forEach(function(pokemon) {
+          let pokemonName = pokemon.querySelector('.pokemon-button').innerText.toLowerCase();
+    
+          if (pokemonName.includes(searchText)) {
+            pokemon.style.display = 'block';
+          } else {
+            pokemon.style.display = 'none';
+          }
+        });
+      }  
+    
+      let searchInput = document.getElementById("search-input");
+      searchInput.addEventListener("input", function () {
+        searchPokemon();
+      });
+      
     return {
         getAll: getAll,
         add: add,
