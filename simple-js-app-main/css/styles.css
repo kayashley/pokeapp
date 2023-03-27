@@ -1,22 +1,28 @@
 :root {
     --primary-color: white;
     --button-color: #B3A125;
-    --body-text-color: white;
+    --searchbar-text-color: black; 
+    --navbar-color: #C66767;
 }
 
 body {
     font-family: 'Courier New', Courier, monospace;
+    /* background-color: var(--primary-color); */
+}
 
-    background-color: var(--primary-color);
+.main-header {
+    text-align: center;
+    font-weight: bold;
+    font-size: 45px;;
+    margin-top: 20px;
 }
 
 h1 {
+    font-size: 30px;
     font-weight: bold;
-    margin-top: 20px;
-    text-align: center;
-    text-transform: capitalize;
 }
 
+/* Pokemon header image */
 .poke-img {
     display: block;
     margin: auto;
@@ -24,12 +30,33 @@ h1 {
     width: 50%;
 }
 
-.credit {
-    text-align: center;
-    font-weight: bold;
-    margin-top: 15px;
+/* Nav bar styles */
+.nav-bar {
+    background-color: var(--navbar-color);
+    height: 5px;
 }
 
+.form-inline {
+    margin-top: -55px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+.pokemon-search {
+    margin-left: auto;
+    border-radius: 12px;
+    background-color: var(--primary-color);
+    border: 3px solid var(--button-color);
+    color: var(--searchbar-text-color);
+}
+
+.pokemon-search::placeholder {
+    color: var(--searchbar-text-color);
+    opacity: 1;
+    font-style: italic;
+}
+
+/* Pokemon buttons */
 .pokemon-list {
     list-style-type: none;
 }
@@ -60,7 +87,7 @@ h1 {
     text-transform: capitalize;
     background-color: var(--button-color);
     border: none;
-    color: var(--body-text-color);
+    color: var(--primary-color);
     padding: 15px 15px;
     text-align: center;
     text-decoration: none;
@@ -74,9 +101,6 @@ h1 {
 
 .list-group-item {
     border: none;
-    /* margin: auto; */
-    /* margin-left: 20px;
-    margin-right: 20px; */
 }
 
 @media all and (max-width: 420px) {
@@ -104,4 +128,11 @@ h1 {
 /* Modal CSS */
 #modal-container {
     display: none;
+}
+
+/* Footer */
+.credit {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 15px;
 }
